@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-google-tags-manager": {
+      "projectType": "library",
+      "root": "projects/ngx-google-tags-manager",
+      "sourceRoot": "projects/ngx-google-tags-manager/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-google-tags-manager/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-google-tags-manager/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-google-tags-manager/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-google-tags-manager/src/test.ts",
+            "tsConfig": "projects/ngx-google-tags-manager/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-google-tags-manager/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-google-tags-manager"
 }

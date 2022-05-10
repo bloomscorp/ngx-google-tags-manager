@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ngx-google-tags-manager": [
+        "dist/ngx-google-tags-manager/ngx-google-tags-manager",
+        "dist/ngx-google-tags-manager"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
