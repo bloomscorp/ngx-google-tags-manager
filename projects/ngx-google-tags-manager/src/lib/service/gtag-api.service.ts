@@ -1,6 +1,7 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 
 import { GtagConfig } from '../interface/gtag-config';
 import { GtagEvent } from '../interface/gtag-event';
@@ -17,14 +18,18 @@ import { GtagConstantService } from './gtag-constant.service';
 export class GtagAPIService {
 	
 	private _globalGtagConfig: GtagConfig;
+	private _isBrowser: boolean;
 
 	constructor(
 		@Inject('config') config: GtagConfig,
 		private _gtagCmd: GtagCommandService,
-		private _router: Router
+		private _router: Router,
+		@Inject(PLATFORM_ID) platformId: string
 	) {
+		this._isBrowser = isPlatformBrowser(platformId);
+
 		this._globalGtagConfig = { trackPageviews: true, ...config };
-		if (this._globalGtagConfig.trackPageviews) {
+		if (this._globalGtagConfig.trackPageviews && this._isBrowser) {
 			_router.events
 				.pipe(
 					filter((event) => event instanceof NavigationEnd),
