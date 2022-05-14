@@ -60,7 +60,7 @@ export class GtagCommandService {
 	 *
 	 * @param params is a key name and the value that is to persist across gtag() calls.
 	 */
-	public set(params: { [key: string]: any }): void {
+	public set(params: { [key: string]: any } = {}): void {
 		gtag(GtagConstantService.SET_COMMAND, params);
 	}
 
