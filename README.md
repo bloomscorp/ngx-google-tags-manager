@@ -7,7 +7,7 @@
 npm install --save @bloomscorp/ngx-gtag
 ```
 
-Add the the tracking code from GA admin dashboard to index.html and set send_page_view to false.
+Add the the tracking code from GA admin dashboard to `index.html` and set `send_page_view` to `false`.
 
 ```html
 <head>
@@ -21,7 +21,7 @@ Add the the tracking code from GA admin dashboard to index.html and set send_pag
 </head>
 ```
 
-Add the package to to your app.module.ts.
+Add the package to to your `app.module.ts`.
 
 ```typescript
 import { NgxGoogleTagsManagerModule } from 'ngx-gtag';
@@ -54,7 +54,7 @@ export class AppComponent {
   constructor(gtag: GtagAPIService) {}
 }
 ```
-GtagAPIService also allows you to track pageviews manually.
+`GtagAPIService` also allows you to track pageviews manually.
 
 ```typescript
 gtag.sendPageviewData();
