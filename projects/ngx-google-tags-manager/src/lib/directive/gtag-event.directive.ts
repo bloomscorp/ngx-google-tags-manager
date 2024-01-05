@@ -5,13 +5,13 @@ import {
 	Input,
 	Renderer2,
 } from '@angular/core';
-import { GtagAPIService } from '../service/gtag-api.service';
+import {GtagAPIService} from '../service/gtag-api.service';
 
 @Directive({
 	selector: '[gtagEvent]',
 })
 export class GtagEventDirective implements AfterViewInit {
-  
+
 	@Input() trackOn: string = '';
 	@Input() action: string = '';
 	@Input() category: string = '';
@@ -21,7 +21,8 @@ export class GtagEventDirective implements AfterViewInit {
 		private _gtag: GtagAPIService,
 		private _renderer: Renderer2,
 		private _elemRef: ElementRef
-	) {}
+	) {
+	}
 
 	ngAfterViewInit() {
 		try {
