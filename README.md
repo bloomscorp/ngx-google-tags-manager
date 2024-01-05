@@ -11,13 +11,13 @@ Add the the tracking code from GA admin dashboard to `index.html` and set `send_
 
 ```html
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR_TRACKING_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-YOUR_TRACKING_ID', { 'send_page_view': false });
-</script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR_TRACKING_ID"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-YOUR_TRACKING_ID', { 'send_page_view': false });
+	</script>
 </head>
 ```
 
@@ -27,14 +27,14 @@ Add the package to to your `app.module.ts`.
 import { NgxGoogleTagsManagerModule } from 'ngx-gtag';
 
 @NgModule({
-  imports: [
-    NgxGoogleTagsManagerModule.forRoot(
-        { 
-            trackingId: 'UA-YOUR_TRACKING_ID', 
-            trackPageviews: true 
-        }
-    )
-  ]
+	imports: [
+		NgxGoogleTagsManagerModule.forRoot(
+			{
+				trackingId: 'UA-YOUR_TRACKING_ID',
+				trackPageviews: true
+			}
+		)
+	]
 })
 ```
 
@@ -49,9 +49,9 @@ The package will listen to route changes by default, you just need to instantiat
 
 ```typescript
 import { GtagAPIService } from 'ngx-gtag';
- 
+
 export class AppComponent {
-  constructor(gtag: GtagAPIService) {}
+	constructor(gtag: GtagAPIService) {}
 }
 ```
 `GtagAPIService` also allows you to track pageviews manually.
@@ -62,9 +62,9 @@ gtag.sendPageviewData();
 // or with custom params
 
 gtag.sendPageviewData({
-  page_title: 'Shopping Products',
-  page_path: '/products',
-  page_location: 'https://abc.com/products'
+	page_title: 'Shopping Products',
+	page_path: '/products',
+	page_location: 'https://abc.com/products'
 });
 
 ```
@@ -80,11 +80,16 @@ You can optionally pass in addtional params.
 
 ```typescript
 gtag.sendEventData({
-  action: 'login'
-  method: 'Instagram',
-  event_category: 'engagemnt',
-  event_label: 'New user logged in via OAuth'
+	action: 'login',
+	method: 'Instagram',
+	event_category: 'engagemnt',
+	event_label: 'New user logged in via OAuth'
 });
 ```
 
 [events]: https://developers.google.com/analytics/devguides/collection/gtagjs/events
+
+
+## Submit an Issue
+
+To submit an issue or feature request please report to [here](https://github.com/bloomscorp/ngx-google-tags-manager/issues)

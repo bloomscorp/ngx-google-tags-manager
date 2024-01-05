@@ -80,7 +80,7 @@ You can optionally pass in addtional params.
 
 ```typescript
 gtag.sendEventData({
-  action: 'login'
+  action: 'login',
   method: 'Instagram',
   event_category: 'engagemnt',
   event_label: 'New user logged in via OAuth'
@@ -88,3 +88,8 @@ gtag.sendEventData({
 ```
 
 [events]: https://developers.google.com/analytics/devguides/collection/gtagjs/events
+
+
+## Submit an Issue
+
+To submit an issue or feature request please report to [here](https://github.com/bloomscorp/ngx-google-tags-manager/issues)
